@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-asdas
-
-</body>
-</html>
+{% for burger in burgerproduct_list %}
+    <a href="{{ burger.get_absolute_url }}"><h1>{{ burger.title }}</h1></a>
+    <p>Цена: {{ burger.price }}</p>
+{% endfor  %}

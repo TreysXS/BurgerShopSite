@@ -20,4 +20,4 @@ class BurgerProduct(models.Model):
 
     def get_absolute_url(self):
         """"""
-        return reverse('product-list', args=[str(self.id)])
+        return reverse('product-detail', args=[str(self.slug)])

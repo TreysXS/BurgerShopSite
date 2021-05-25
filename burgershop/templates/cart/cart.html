@@ -1,0 +1,10 @@
+<p>{{ cart.customer }}</p>
+<p>Товары в корзине:</p>
+{% for product in cart.cart_product.all %}
+    <p>{{ product.product.title }}</p>
+{% endfor %}
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Send</button>
+</form>
