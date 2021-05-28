@@ -1,0 +1,16 @@
+   <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id_first_name">Имя:</label>
+            <input type="text" name="first_name" id="id_first_name" value="{{ user.first_name }}">
+
+            <p><label for="id_last_name">Фамилия:</label>
+            <input type="text" name="last_name" id="id_last_name" value="{{ user.last_name}}"></p>
+
+            <p><label for="id_description">Описание:</label>
+            <textarea name="description" id="id_description">{{ profile.description }}</textarea></p>
+
+            <p><label for="id_img">Аватар вашего профиля:</label>
+            <input type="file" name="img" id="id_img"></p>
+
+            <p><button type="submit">Сохранить</button></p>
+        </form>

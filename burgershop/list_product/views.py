@@ -23,7 +23,7 @@ class BurgerDetailView(View):
     def post(self, request, slug):
         count_product = int(request.POST.get('count'))
         new_product = BurgerProduct.objects.get(slug=slug)
-        for i in range(0, count_product):
+        for _ in range(0, count_product):
             cart_product = request.user.cart.cart_product.create(product=new_product)
             cart_product.save()
         return redirect('user-cart')
