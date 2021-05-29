@@ -1,9 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Order
+
+from orders.models import Order
 
 
-class CartView(View):
+class CartView(LoginRequiredMixin, View):
 
     def get(self, request):
         return render(request, 'cart/cart.html', context={'cart': request.user.cart})

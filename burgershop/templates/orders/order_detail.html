@@ -1,0 +1,11 @@
+<h2>Заказ:</h2>
+<p>Имя заказчика: {{ order.customer.username }}</p>
+<p>Список продуктов:</p>
+{% for product in order.cart_products.all %}
+    <p>{{ product.product.title }} ({{product.id }})</p>
+{% endfor %}
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ order.id }}">
+    <button type="submit">Send</button>
+</form>

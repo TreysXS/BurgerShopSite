@@ -33,4 +33,4 @@ class UserProfileUpdate(LoginRequiredMixin, View):
             user_form.save()
             profile_form.save()
 
-        return redirect('user-profile')
+            return redirect('user-profile')

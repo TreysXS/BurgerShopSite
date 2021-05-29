@@ -41,14 +41,3 @@ class Cart(models.Model):
         instance.cart.save()
 
 
-class Order(models.Model):
-    """
-    """
-    customer = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    cart_products = models.ManyToManyField(CartProduct)
-
-    class Meta:
-        verbose_name_plural = 'Заказы'
-
-    def get_absolute_url(self):
-        return reverse('order-user', args=[str(self.id)])
