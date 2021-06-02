@@ -1,4 +1,8 @@
 {% for burger in burgerproduct_list %}
-    <a href="{{ burger.get_absolute_url }}"><h1>{{ burger.title }}</h1></a>
-    <p>Цена: {{ burger.price }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <a href="{{ burger.get_absolute_url }}"><h1>{{ burger.title }}</h1></a>
+        <p>Цена: {{ burger.price }}</p>
+        <button name="slug" value="{{ burger.slug }}">Добавить</button>
+    </form>
 {% endfor  %}

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from .forms import UserForm, UserProfileForm
+from .service import save_user_profile
 
 
 class UserProfileDetail(LoginRequiredMixin, View):
@@ -16,6 +17,7 @@ class UserProfileDetail(LoginRequiredMixin, View):
 
 
 class UserProfileUpdate(LoginRequiredMixin, View):
+    """"""
 
     def get(self, request):
         """"""
@@ -30,7 +32,9 @@ class UserProfileUpdate(LoginRequiredMixin, View):
         profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
 
         if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
+            save_user_profile(user_form, profile_form)
 
             return redirect('user-profile')
+
+        else:
+            return redirect('user-change')

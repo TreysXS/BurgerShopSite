@@ -6,6 +6,5 @@
 {% endfor %}
 <form method="post">
     {% csrf_token %}
-    <input type="hidden" name="id" value="{{ order.id }}">
-    <button type="submit">Send</button>
+    <button type="submit">Закрыть заказ</button>
 </form>
