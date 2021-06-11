@@ -8,10 +8,11 @@ from .service import get_product, create_products
 
 
 class BurgerListView(ListView):
-    """"""
+
     model = BurgerProduct
 
     def post(self, request):
+        """If user is authenticated create a cart_product ELSE redirect to the login page."""
         if request.user.is_authenticated:
             slug = request.POST.get('slug')
             new_product = get_product(slug)
@@ -22,10 +23,9 @@ class BurgerListView(ListView):
 
 
 class BurgerDetailView(View):
-    """"""
 
     def get(self, request, slug):
-        """"""
+        """Displays the BurgerProduct page"""
         try:
             burger_product = get_product(slug)
         except BurgerProduct.DoesNotExist:
@@ -33,7 +33,7 @@ class BurgerDetailView(View):
         return render(request, 'list_product/burgerproduct_detail.html', context={'burger': burger_product})
 
     def post(self, request, slug):
-        """"""
+        """If user is authenticated create a cart_product's ELSE redirect to the login page"""
         if request.user.is_authenticated:
             count_product = int(request.POST.get('count'))
             new_product = get_product(slug)

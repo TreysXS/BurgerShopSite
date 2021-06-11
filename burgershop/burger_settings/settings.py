@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'user_profile.apps.UserProfileConfig',
     'orders.apps.OrdersConfig',
+    'info.apps.InfoConfig',
 
     'allauth',
     'allauth.account',
@@ -111,7 +112,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    '/burgershop/static/',
+)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

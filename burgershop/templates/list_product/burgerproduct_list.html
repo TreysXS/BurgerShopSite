@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 {% for burger in burgerproduct_list %}
     <form method="post">
         {% csrf_token %}
@@ -6,3 +10,5 @@
         <button name="slug" value="{{ burger.slug }}">Добавить</button>
     </form>
 {% endfor  %}
+
+{% endblock %}

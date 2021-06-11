@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <p>{{ burger.title }}</p>
 <p>Кол. грамм: {{ burger.grammar }}</p>
 <p>Описание: {{ burger.description }}</p>
@@ -9,3 +13,5 @@
      Кол. продуктов: <input type="number" name="count" value="1" max="15" min="1">
     <button type="submit">Добавить в корзину</button>
 </form>
+
+{% endblock %}

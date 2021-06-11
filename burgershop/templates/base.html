@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'info/css/base.css' %}">
+    {% endblock %}
+</head>
+<body>
+
+    <div class="left_side">
+        <div class="object_in_side"><a href="{% url 'home' %}">Главная</a></div>
+        <div class="object_in_side"><a href="{% url 'product-list' %}">Бургеры</a></div>
+        {% if user.is_authenticated %}
+            <div class="object_in_side"><a href="{% url 'user-cart' %}">Корзина</a></div>
+            <div class="object_in_side"><a href="{% url 'user-profile' %}">Профиль</a></div>
+            <div class="object_in_side"><a href="{% url 'account_logout' %}">Выйти</a></div>
+        {% else %}
+            <div class="object_in_side"><a href="{% url 'account_login' %}">Вход/Регистрация</a></div>
+        {% endif %}
+    </div>
+{% block content %}{% endblock %}
+
+</body>
+</html>

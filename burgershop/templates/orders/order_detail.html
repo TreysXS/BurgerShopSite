@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>Заказ:</h2>
 <p>Имя заказчика: {{ order.customer.username }}</p>
 <p>Список продуктов:</p>
@@ -8,3 +11,4 @@
     {% csrf_token %}
     <button type="submit">Закрыть заказ</button>
 </form>
+{% endblock %}

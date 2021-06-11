@@ -17,17 +17,16 @@ class UserProfileDetail(LoginRequiredMixin, View):
 
 
 class UserProfileUpdate(LoginRequiredMixin, View):
-    """"""
 
     def get(self, request):
-        """"""
+        """Displays a page with user data."""
         return render(request, 'user_profile/profile_update.html', context={
                                                                         'profile': request.user.profile,
                                                                         'user': request.user,
                                                                            })
 
     def post(self, request):
-        """"""
+        """IF the forms are valid saves the data about the user ELSE doesn't change anything."""
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = UserProfileForm(request.POST, request.FILES, instance=request.user.profile)
 

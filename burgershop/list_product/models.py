@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class BurgerProduct(models.Model):
-    """"""
+    """Product model."""
     title = models.CharField(max_length=100, verbose_name='Название продукта')
     description = models.TextField(max_length=1000, verbose_name='Описание продукта')
     grammar = models.IntegerField(verbose_name='Граммовки', default='0')
@@ -19,5 +19,4 @@ class BurgerProduct(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        """"""
         return reverse('product-detail', args=[str(self.slug)])

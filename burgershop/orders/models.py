@@ -6,8 +6,7 @@ from cart.models import CartProduct
 
 
 class Order(models.Model):
-    """
-    """
+    """Order model."""
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     customer = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     cart_products = models.ManyToManyField(CartProduct)

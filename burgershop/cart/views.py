@@ -9,11 +9,11 @@ class CartView(LoginRequiredMixin, View):
     """"""
 
     def get(self, request):
-        """"""
+        """Displays the cart page."""
         return render(request, 'cart/cart.html', context={'cart': request.user.cart})
 
     def post(self, request):
-        """"""
+        """Creates an order or removes products from the cart."""
         value_cart = request.POST.get('cart')
         user_products = get_user_products(request)
         if value_cart == 'send':

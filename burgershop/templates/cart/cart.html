@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <p>{{ cart.customer }}</p>
 <p>Товары в корзине:</p>
 {% for product in cart.cart_product.all %}
@@ -9,3 +13,5 @@
     <button type="submit" name="cart" value="send">Заказать</button>
     <p><button type="submit" name="cart" value="delete">Очистить корзину</button></p>
 </form>
+
+{% endblock %}
